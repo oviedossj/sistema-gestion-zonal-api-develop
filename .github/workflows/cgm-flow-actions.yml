@@ -51,13 +51,9 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Add GitLab remote
-        run: git remote add gitlab ${{ secrets.GITLAB_REPO_URL }}
+        run: |
+          git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/wai-argentina/autogestion-wai-backend.git
 
       - name: Push to GitLab
-        env:
-          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: |
           git push gitlab HEAD:main # Cambia 'main' si usas otra rama principal
-
-
-
