@@ -54,11 +54,6 @@ jobs:
         run: |
           git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/wai-argentina/autogestion-wai-backend.git
 
-      - name: Pull from GitLab
-        run: |
-          git fetch gitlab main
-          git reset --hard gitlab/main
-
       - name: Push to GitLab
         run: |
           git push gitlab HEAD:main # Cambia 'main' si usas otra rama principal
