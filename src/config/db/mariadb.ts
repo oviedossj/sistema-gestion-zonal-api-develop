@@ -1,7 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { Sequelize } from 'sequelize';
-import logger from '@shared/utils/logger';
-// import { initialize } from '@fligh/models';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Sequelize } from 'sequelize-typescript';
+import logger from '@src/utils/logger';
+import { models } from '@src/config/db/models';
+
 class Database {
   private sequelize: Sequelize;
 
@@ -11,39 +12,52 @@ class Database {
 
   async initialize(url: string) {
     this.sequelize = new Sequelize(url, {
-      dialect: 'mariadb',
+      dialect: 'mysql',
       logging: false,
       dialectOptions: {
         connectTimeout: 5000,
       },
+      models: [], 
     });
-    logger.info(`Database connected`);
+    this.sequelize.addModels(models);
+    try {
+      await this.sequelize.authenticate();
+      logger.info('Database connected');
+    } catch (error) {
+      logger.error('Unable to connect to the database:', error);
+    }
   }
 
   public async authenticate(): Promise<void> {
     return this.sequelize
       .authenticate()
       .then(() => {
-        console.log('Conectado a la DB.');
-        //   return initialize(this.getSequelizeInstance());
-      })
-      .then(() => {
-        // console.log('DB inicializada y modelos asociados.');
+        console.log('DB inicializada y modelos asociados.');
         // return this.sequelize.sync();
       })
       .then(() => {
-        // console.log('DB sincronizada.');
+        console.log('DB sincronizada.');
       })
       .catch((error: unknown) => {
         console.error('Unable to connect to the database:', error);
       });
   }
 
-  // Método para acceder a la instancia de Sequelize (opcional, en caso de que necesites acceder directamente a la instancia de Sequelize fuera de esta clase)
-  public getSequelizeInstance(): Sequelize {
+  public get_Sequelize_Instance(): Sequelize {
     return this.sequelize;
   }
-  // Puedes agregar más métodos aquí, como inicialización de modelos, sincronización de la base de datos, etc.
 }
 
 export default Database;
+// import path from 'path';
+// import fs from 'fs';
+    // const modelsPath = path.join(__dirname, '../../models');
+    // const modelFiles = fs.readdirSync(modelsPath)
+    //   .filter(file => (file.endsWith('.ts') || file.endsWith('.js')) && !file.includes('index'));
+
+    // const importedModels = await Promise.all(modelFiles.map(file =>
+    //   import(path.join(modelsPath, file))
+    // ));
+    // importedModels.forEach(model => {
+    //   this.sequelize.addModels([model.default || model]);
+    // });

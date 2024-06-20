@@ -51,21 +51,28 @@ general:
         es: 'Recurso no encontrado.'
         en: 'Resource not found.'
       status: 404
-  TOO_MANY_REQUESTS:
-    usage_limit_reached:
-      key: 'general.TOO_MANY_REQUESTS.usage_limit_reached'
-      code: 'USAGE_LIMIT_REACHED'
+    incident_report_not_found:
+      key: 'general.NOT_FOUND.incident_report_not_found'
+      code: 'INCIDENT_REPORT_NOT_FOUND'
       message:
-        es: 'La cuenta de usuario ha alcanzado el volumen mensual de solicitudes permitidas.'
-        en: 'The given user account has reached its monthly allowed request volume.'
-      status: 429
-    rate_limit_reached:
-      key: 'general.TOO_MANY_REQUESTS.rate_limit_reached'
-      code: 'RATE_LIMIT_REACHED'
+        es: 'El reporte de incidente solicitado no fue encontrado.'
+        en: 'The requested incident report was not found.'
+      status: 404
+  BAD_REQUEST:
+    invalid_case_id:
+      key: 'general.BAD_REQUEST.invalid_case_id'
+      code: 'INVALID_CASE_ID'
       message:
-        es: 'La cuenta de usuario ha alcanzado el límite de velocidad.'
-        en: 'The given user account has reached the rate limit.'
-      status: 429
+        es: 'El ID del caso proporcionado es inválido.'
+        en: 'The provided case ID is invalid.'
+      status: 400
+    invalid_incident_data:
+      key: 'general.BAD_REQUEST.invalid_incident_data'
+      code: 'INVALID_INCIDENT_DATA'
+      message:
+        es: 'Los datos del incidente proporcionados son inválidos.'
+        en: 'The provided incident data is invalid.'
+      status: 400
   INTERNAL_SERVER_ERROR:
     internal_error:
       key: 'general.INTERNAL_SERVER_ERROR.internal_error'
@@ -74,7 +81,34 @@ general:
         es: 'Ocurrió un error interno.'
         en: 'An internal error occurred.'
       status: 500
-
+    incident_report_creation_failed:
+      key: 'general.INTERNAL_SERVER_ERROR.incident_report_creation_failed'
+      code: 'INCIDENT_REPORT_CREATION_FAILED'
+      message:
+        es: 'No se pudo crear el reporte de incidente.'
+        en: 'Failed to create incident report.'
+      status: 500
+    incident_report_update_failed:
+      key: 'general.INTERNAL_SERVER_ERROR.incident_report_update_failed'
+      code: 'INCIDENT_REPORT_UPDATE_FAILED'
+      message:
+        es: 'No se pudo actualizar el reporte de incidente.'
+        en: 'Failed to update incident report.'
+      status: 500
+    incident_report_search_failed:
+      key: 'general.INTERNAL_SERVER_ERROR.incident_report_search_failed'
+      code: 'INCIDENT_REPORT_SEARCH_FAILED'
+      message:
+        es: 'No se pudieron buscar los reportes de incidentes.'
+        en: 'Failed to search incident reports.'
+      status: 500
+    incident_report_fetch_failed:
+      key: 'general.INTERNAL_SERVER_ERROR.incident_report_fetch_failed'
+      code: 'INCIDENT_REPORT_FETCH_FAILED'
+      message:
+        es: 'No se pudo obtener el reporte de incidente.'
+        en: 'Failed to fetch incident report.'
+      status: 500
 oauth_errors:
   redirect_error:
     key: 'oauth_errors.redirect_error'
@@ -104,7 +138,6 @@ oauth_errors:
       es: 'Falta el código de autorización'
       en: 'Authorization code is missing'
     status: 400
-
 http_client:
   get_error:
     key: 'http_client.get_error'

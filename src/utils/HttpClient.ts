@@ -1,4 +1,4 @@
-import { ErrorHTTP, IHttpClient } from '../interface/httpClient.interface';
+import { ErrorHTTP, IHttpClient } from '@src/interface';
 import logger from './logger';
 
 /**

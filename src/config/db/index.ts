@@ -1,9 +1,6 @@
-import { config } from '@shared/index';
-import ConnectorMongo from './mongodb';
-// import Database from './mariadb';
+import  config  from '@src/config/env/env';
+import ConnectionMariaDB from './mariadb';
 
-// const connector = new Database(config.DB_CONNECTION);
-const connectorMongo = new ConnectorMongo(config.DB_CONNECTION_MONGO);
+const Connection = new ConnectionMariaDB(config.DB_CONNECTION);
 
-export { connectorMongo, ConnectorMongo };
-// export { connector, Database };
+export { Connection, ConnectionMariaDB };
