@@ -1,52 +1,60 @@
 # BUILDER STAGE
 FROM node:lts-alpine AS builder
 
-# Checking version node
+# Check node version
 RUN node --version
-# Select workdir
+
+# Set workdir
 WORKDIR /build
 
-# Copy code
+# Copy code to the container
 COPY . /build
 
-# Build application 
+# Install dependencies and build application
 RUN npm install
 RUN npm run build
 
 # LAUNCHER SERVER STAGE
 FROM node:lts-alpine
+
+# Set environment variables
 ENV DIR_SWAGGER='./dist/src/shared/docs/swagger.yml'
 ENV DIR_ERROR='./dist/src/shared/handler/error.yml'
-
 ENV PORT=8080
 
-# Select workdir
+# Set workdir
 WORKDIR /usr/src/app
 
-# Checking version node
+# Check node version
 RUN node --version
 
-# Install tools and change permissions
+# Install tini and change permissions
 RUN apk add --no-cache tini \
     && chown node:node /usr/src/app 
 
-# Add artifacts from builder image
+# Copy built artifacts from builder stage
 COPY --chown=node:node --from=builder /build/dist dist
 COPY --chown=node:node --from=builder /build/package.json package.json
 COPY --chown=node:node --from=builder /build/node_modules node_modules
 COPY --chown=node:node --from=builder /build/tsconfig.json tsconfig.json
-# Copiar el archivo YAML necesario
 COPY --chown=node:node --from=builder /build/src/shared/handler/error.yml dist/src/shared/handler/error.yml
 COPY --chown=node:node --from=builder /build/src/shared/docs dist/src/shared/docs
 
+# Ensure .env file exists
 RUN touch dist/.env
 
-# Change to no-root user
+# Change to non-root user
 USER node 
+
+# Create logs directory and symlink logs to stdout
 RUN mkdir -p /usr/src/app/logs \
     && ln -sf /dev/stdout /usr/src/app/logs/server.log
 
+# Set workdir to dist
 WORKDIR /usr/src/app/dist
 
-# Run server
-ENTRYPOINT ["tini", "--", "npm", "run", "server:prod:docker"]
+# Set entrypoint
+ENTRYPOINT ["tini", "--"]
+
+# Set command to run the server
+CMD ["npm", "run", "server:prod:docker"]

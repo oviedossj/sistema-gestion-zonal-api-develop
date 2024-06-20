@@ -10,9 +10,7 @@ export default {
   DOCS_ENDPOINT: '/docs',
   DIR_SWAGGER: process.env.DIR_SWAGGER || './src/config/docs/swagger.yml',
   // DB_CONNECTION: process.env.DB_CONNECTION || 'mysql://user:user_password@localhost:3306/autogestion',
-  DB_CONNECTION:
-    process.env.DB_CONNECTION ||
-    'mysql://root:PjruZolEmDgVpoOWQpkOczHYivJxiYCw@roundhouse.proxy.rlwy.net:23866/autogestion',
+  DB_CONNECTION: process.env.DB_CONNECTION || 'mysql://root:PjruZolEmDgVpoOWQpkOczHYivJxiYCw@roundhouse.proxy.rlwy.net:23866/autogestion',
   DB_CONNECTION_MONGO: process.env.DB_CONNECTION_MONGO || 'mongodb://rootuser:rootpass@localhost:27017/',
   SECURITY_API_URL: process.env.SECURITY_API_URL || 'http://localhost:8080',
   JWT_SECRET: process.env.JWT_SECRET || 'your_jwt_secret',
