@@ -1,12 +1,11 @@
-
 import { loadRoles } from '@src/utils/roleLoader';
 
-let RolesEnum: { [key: string]: number } =  {
+let RolesEnum: { [key: string]: number } = {
   ADMIN: 1,
   SUPERVISOR: 2,
   AREA: 3,
-  USER: 4
-};;
+  USER: 4,
+};
 
 export const initRolesEnum = async () => {
   RolesEnum = await loadRoles();

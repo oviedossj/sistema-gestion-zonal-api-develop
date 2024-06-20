@@ -27,7 +27,7 @@
 //       offset: 'incidentType',
 //       order: 'desc',
 //     };
-//     const expectedIncidents = [mockIncidents[1]]; 
+//     const expectedIncidents = [mockIncidents[1]];
 
 //     (repository.find_All as jest.Mock).mockResolvedValue(expectedIncidents);
 
@@ -40,11 +40,11 @@
 //   it('should return filtered cases', async () => {
 //     const mockQuery: Query = {
 //       filter: { incidentType: 1 },
-//       limit: '1', 
+//       limit: '1',
 //       offset: 'id',
 //       order: 'asc',
 //     };
-//     const expectedIncidents = [mockIncidents[0]]; 
+//     const expectedIncidents = [mockIncidents[0]];
 
 //     (repository.find_All as jest.Mock).mockResolvedValue(expectedIncidents);
 
@@ -54,7 +54,7 @@
 //   });
 
 //   it('should throw an error if no cases are found with query', async () => {
-//     const mockQuery: Query = { filter: { incidentType: 3 }, limit: "1", offset: 'id', order: 'asc' }; 
+//     const mockQuery: Query = { filter: { incidentType: 3 }, limit: "1", offset: 'id', order: 'asc' };
 //     (repository.find_All as jest.Mock).mockResolvedValue([]);
 
 //     await expect(service.search_case(mockQuery)).rejects.toThrow('INTERNAL_SERVER_ERROR.internal_error');

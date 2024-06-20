@@ -1,20 +1,14 @@
 export interface IPermission_Repositories<T> {
-    addPermissionToUser(
-        userId: number, 
-        type: string, 
-        accessId: number, 
-        permissionLevel: number
-      ): Promise<T>   
-    getUserPermissions(userId: number): Promise<T[]>
+  addPermissionToUser(userId: number, type: string, accessId: number, permissionLevel: number): Promise<T>;
+  getUserPermissions(userId: number): Promise<T[]>;
 }
 
 export enum Roles {
   OPERADOR = 1,
   CGM = 2,
   AREA = 3,
-  SUPERVISOR = 4
+  SUPERVISOR = 4,
 }
-
 
 export interface Permission_UserAttributes {
   id?: number;

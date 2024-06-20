@@ -9,19 +9,19 @@ import logger from '@src/utils/logger';
 const errors = YAML.load(config.DIR_ERRORS);
 export async function createError(errorKey: string, lang: 'en' | 'es' = 'en'): Promise<ErrorDetail> {
   try {
-        const keys = errorKey.split('.');
-        let errorType: any = errors;
+    const keys = errorKey.split('.');
+    let errorType: any = errors;
 
-        errorType = keys.reduce((acc, key) => {
-            if (!acc[key]) {
-                throw new Error('Error key not found');
-            }
-            return acc[key];
-        }, errorType);
+    errorType = keys.reduce((acc, key) => {
+      if (!acc[key]) {
+        throw new Error('Error key not found');
+      }
+      return acc[key];
+    }, errorType);
 
-        if (typeof errorType !== 'object' || !errorType.message) {
-            throw new Error('Invalid error format');
-        }
+    if (typeof errorType !== 'object' || !errorType.message) {
+      throw new Error('Invalid error format');
+    }
 
     return {
       key: errorType.key,
@@ -70,4 +70,3 @@ export async function errorHandler(err: unknown, req: Request, res: Response, ne
     },
   });
 }
-

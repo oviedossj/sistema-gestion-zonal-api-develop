@@ -21,6 +21,6 @@ import { Connection } from '@src/config/db';
     const server = new Server(config.PORT, routes);
     server.start();
   } catch (err) {
-    console.error("Error during server initialization:", err);
+    console.error('Error during server initialization:', err);
   }
 })();

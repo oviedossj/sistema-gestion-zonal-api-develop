@@ -106,9 +106,6 @@ describe('Case_Report_Repository with mocks', () => {
 
     const updated = await repository.update_Case(case_id, { barrio: 'Barrio 3' });
     expect(updated).toBe(true);
-    expect(MockedIncidentReport.update).toHaveBeenCalledWith(
-      { barrio: 'Barrio 3' },
-      { where: { id: case_id } }
-    );
+    expect(MockedIncidentReport.update).toHaveBeenCalledWith({ barrio: 'Barrio 3' }, { where: { id: case_id } });
   });
 });

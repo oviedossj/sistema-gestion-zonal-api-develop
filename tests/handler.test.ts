@@ -1,4 +1,4 @@
-import { createError } from '../src/config/handler/handler'; 
+import { createError } from '../src/config/handler/handler';
 
 test('createError with valid key', async () => {
   const error = await createError('general.UNAUTHORIZED.invalid_access_key', 'es');

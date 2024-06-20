@@ -4,7 +4,7 @@ export const loadRoles = async () => {
   const roles = await Role.findAll();
   const rolesEnum: { [key: string]: number } = {};
 
-  roles.forEach(role => {
+  roles.forEach((role) => {
     rolesEnum[role.name.toUpperCase()] = role.id;
   });
 

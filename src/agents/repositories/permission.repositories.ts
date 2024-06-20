@@ -1,5 +1,5 @@
 import { Permission_User } from '@src/config/db/models/permission_user.models';
-import { IPermission_Repositories,  } from '@src/interface/permission.repositories.interface';
+import { IPermission_Repositories } from '@src/interface/permission.repositories.interface';
 import logger from '@src/utils/logger';
 
 export class Permission_Repositories implements IPermission_Repositories<Permission_User> {
@@ -16,7 +16,7 @@ export class Permission_Repositories implements IPermission_Repositories<Permiss
         accessId,
         permissionLevel,
       };
-      
+
       const permissionUser = await Permission_User.create(permissionUserAttributes);
       return permissionUser;
     } catch (error) {

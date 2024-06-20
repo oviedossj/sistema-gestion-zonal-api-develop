@@ -40,9 +40,9 @@ router.get('/example', async (req: Request, res: Response, next: NextFunction) =
   }
 });
 
-router.post('/assign-role', verifyRole(['SUPERVISOR', 'AREA']) , async (req: Request, res: Response) => {
-    const users = 'Hello , you are into at future';
-    res.send(users);
-  });
+router.post('/assign-role', verifyRole(['SUPERVISOR', 'AREA']), async (req: Request, res: Response) => {
+  const users = 'Hello , you are into at future';
+  res.send(users);
+});
 
 export default router;

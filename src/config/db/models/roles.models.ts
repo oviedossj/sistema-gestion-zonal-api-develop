@@ -11,7 +11,7 @@ export class Role extends Model<Role> {
     autoIncrement: true,
     primaryKey: true,
   })
-  declare  id: number;
+  declare id: number;
 
   @Column({
     type: DataType.STRING(100),

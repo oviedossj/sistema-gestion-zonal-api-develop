@@ -17,7 +17,7 @@ class Database {
       dialectOptions: {
         connectTimeout: 5000,
       },
-      models: [], 
+      models: [],
     });
     this.sequelize.addModels(models);
     try {
@@ -51,13 +51,13 @@ class Database {
 export default Database;
 // import path from 'path';
 // import fs from 'fs';
-    // const modelsPath = path.join(__dirname, '../../models');
-    // const modelFiles = fs.readdirSync(modelsPath)
-    //   .filter(file => (file.endsWith('.ts') || file.endsWith('.js')) && !file.includes('index'));
+// const modelsPath = path.join(__dirname, '../../models');
+// const modelFiles = fs.readdirSync(modelsPath)
+//   .filter(file => (file.endsWith('.ts') || file.endsWith('.js')) && !file.includes('index'));
 
-    // const importedModels = await Promise.all(modelFiles.map(file =>
-    //   import(path.join(modelsPath, file))
-    // ));
-    // importedModels.forEach(model => {
-    //   this.sequelize.addModels([model.default || model]);
-    // });
+// const importedModels = await Promise.all(modelFiles.map(file =>
+//   import(path.join(modelsPath, file))
+// ));
+// importedModels.forEach(model => {
+//   this.sequelize.addModels([model.default || model]);
+// });

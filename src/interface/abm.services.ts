@@ -1,10 +1,7 @@
-
 export interface IABM_Service<T> {
-// ---------------- permission center--------------------------
+  // ---------------- permission center--------------------------
 
-update_Citizen(user_id: string): Promise<T | null>;
+  update_Citizen(user_id: string): Promise<T | null>;
 
-grant_permissions(user_id:string):Promise <void>
-
-
+  grant_permissions(user_id: string): Promise<void>;
 }

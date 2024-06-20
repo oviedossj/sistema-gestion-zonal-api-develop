@@ -10,4 +10,15 @@ import { Incident_Report } from './incident_report.models';
 import { Incident_Report_Files } from './incident_report_files.model';
 import { Incident_Report_Types } from './incident_report_types.model';
 
-export const models = [User, User_Temp, Permission_User, Role, Area, Zona, Incident_Report, Incident_Report_Files, Incident_Report_Types, Paperwork_Item];
+export const models = [
+  User,
+  User_Temp,
+  Permission_User,
+  Role,
+  Area,
+  Zona,
+  Incident_Report,
+  Incident_Report_Files,
+  Incident_Report_Types,
+  Paperwork_Item,
+];

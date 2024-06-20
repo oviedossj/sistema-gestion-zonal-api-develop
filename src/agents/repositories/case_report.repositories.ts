@@ -4,7 +4,6 @@ import logger from '@src/utils/logger';
 import { createError } from '@src/config/handler/handler';
 
 export class Case_Report_Repository implements ICase_Report_Repository<Incident_Report> {
-  
   async create_case(data: IncidentReportCreationAttributes): Promise<void> {
     try {
       await Incident_Report.create(data);

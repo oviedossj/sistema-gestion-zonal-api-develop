@@ -34,7 +34,6 @@
     "paths": {
       "@src/*": ["src/*"],
       "@agents/*": ["src/agents/*"]
-
     },
     "experimentalDecorators": true, // Habilita decoradores
     "emitDecoratorMetadata": true, // Emite metadata necesaria
