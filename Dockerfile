@@ -18,8 +18,8 @@ RUN npm run build
 FROM node:lts-alpine
 
 # Set environment variables
-ENV DIR_SWAGGER='./dist/src/shared/docs/swagger.yml'
-ENV DIR_ERROR='./dist/src/shared/handler/error.yml'
+ENV DIR_SWAGGER='./dist/src/config/docs/swagger.yml'
+ENV DIR_ERROR='./dist/src/config/handler/error.yml'
 ENV PORT=8080
 
 # Set workdir
