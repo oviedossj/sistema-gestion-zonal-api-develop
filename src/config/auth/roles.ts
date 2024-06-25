@@ -4,7 +4,7 @@ let RolesEnum: { [key: string]: number } = {
   ADMIN: 1,
   SUPERVISOR: 2,
   AREA: 3,
-  USER: 4,
+  CGM: 4,
 };
 
 export const initRolesEnum = async () => {

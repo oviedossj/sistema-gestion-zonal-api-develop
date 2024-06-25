@@ -26,6 +26,7 @@
     "consistent-return": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": ["warn"],
+    
     "no-empty-function": "off",
     "@typescript-eslint/no-empty-function": ["error", { "allow": ["private-constructors", "protected-constructors"] }],
     "class-methods-use-this": "off",
@@ -34,7 +35,7 @@
     "no-plusplus": "off",
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
-    "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true, "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true, "argsIgnorePattern": "^_" }, { "varsIgnorePattern": "^Request$" }],
     "@typescript-eslint/restrict-template-expressions": "off",
     "import/prefer-default-export": "off"
   }

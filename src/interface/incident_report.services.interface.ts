@@ -1,19 +1,29 @@
-import { Query } from '@src/models';
+import { Iverify_Agente, Query } from '@src/models';
+import { AddressData } from './httpClient.interface';
+import { IncidentReportData } from './case_report.repositories.inteface';
+import { IConsultReportData } from './consult_report.repositories.interface';
 
 export interface IIncident_Report_Service<T> {
   // ------------------- Case management --------------
 
-  search_case(query: Query): Promise<T[]>;
-  create_case(Body_case: object): Promise<T>;
-  update_case(case_id: string, changes: object): Promise<boolean>;
+  search_case(query: Query, user: Iverify_Agente): Promise<T[]>;
+  search_consulta(query: Query, user: Iverify_Agente): Promise<T[]>;
+  create_case(incidentData: IncidentReportData): Promise<string>;
+  create_consult(incidentData: IConsultReportData): Promise<string>;
+  // update_case(case_id: string, changes: object): Promise<boolean>;
 
   // ---------------------- Reusable -----------------------------
 
-  // exportar_Csv(query:Query): Promise<void>
-  // verify_direction(direction: string): Promise<void>
+  verify_direction(direction: string,user: Iverify_Agente): Promise<AddressData>
+  exportar_Csv(query:Query,user:Iverify_Agente): Promise<string>
 }
 
-// // ---------------- Derivaciones center--------------------------
-// create_area( Body_area: object ) :Promise<void>
-// list_area():Promise <K>
-// update( area_id: string ):Promise<void>
+export interface ISearch_Report_Summary {
+  id: number;
+  incidentId: string;
+  incidentType: number;
+  incidentSubtype: string;
+  status: string;
+  createdAt: Date;
+  nivelRiesgo: string;
+}

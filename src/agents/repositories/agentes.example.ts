@@ -15,17 +15,12 @@
 //     }
 
 //     public async get(req: Request, res: Response): Promise<Response> {
-//         const isAdmin = this.validateUserDataFromRequest(req);
-//         if (!isAdmin) {
-//             return res.status(403).json(this.genericError());
-//         }
 
 //         const id = req.params.id;
 //         const incidentModel = new IncidentReportModel();
 //         const incidentFileModel = new IncidentReportFilesModel();
 //         const incidentTypeModel = new IncidentReportTypesModel();
 //         const userModel = new UserModel();
-//         const userTempModel = new UserTempModel();
 
 //         const incidentDetails = await incidentModel.getWithPaperworkItem(id, PAPERWORK_ID);
 
@@ -35,21 +30,8 @@
 
 //         const incidentType = await incidentTypeModel.find(incidentDetails.incident_type);
 //         const incidentFiles = await incidentFileModel.getFiles(id);
-//         let userData = {};
-
-//         if (incidentDetails.pwi_user_id === 0) {
-//             const dataTemp = await userTempModel.findByDni(incidentDetails.pwi_representation);
-//             userData = {
-//                 name: dataTemp.name,
-//                 surname: dataTemp.surname,
-//                 dni: dataTemp.dni,
-//                 email: dataTemp.email,
-//                 phone: dataTemp.phone,
-//                 address: dataTemp.address,
-//             };
-//         } else {
-//             userData = await userModel.findUserDetails(incidentDetails.pwi_user_id);
-//         }
+//         let userData =  await userModel.findUserDetails(incidentDetails.pwi_user_id);
+    
 
 //         const responseData = {
 //             paperwork: incidentDetails,
@@ -64,44 +46,12 @@
 //     }
 
 //     public async add(req: Request, res: Response): Promise<Response> {
-//         const isAdmin = this.validateUserDataFromRequest(req);
-//         if (!isAdmin) {
-//             return res.status(403).json(this.genericError());
-//         }
-
+ 
 //         const user_id = req.headers['x-user-id'] as string;
 //         const user = req.body.user;
 
-//         let finalUserId;
+//         let  finalUserId = user.id;
 //         let representation = '';
-
-//         if (user.id === 99999999999) {
-//             const userTempModel = new UserTempModel();
-//             const dataUserTemp = {
-//                 email: user.email,
-//                 password: '',
-//                 cuit: user.dni,
-//                 dni: user.dni,
-//                 name: user.name,
-//                 surname: user.surname,
-//                 birthday: '',
-//                 phone: user.phone,
-//                 type_citizen: '',
-//                 phone_company: '',
-//                 is_locality: 0,
-//                 address: user.address,
-//                 address_number: '',
-//                 address_unknown: '',
-//                 address_additional: '',
-//                 locality_id: 0
-//             };
-//             await userTempModel.save(dataUserTemp);
-//             finalUserId = 0;
-//             representation = user.dni;
-//         } else {
-//             finalUserId = user.id;
-//         }
-
 //         const incidentReportModel = new IncidentReportModel();
 //         const itemModel = new PaperworkItemModel();
 //         const incidenReport = {

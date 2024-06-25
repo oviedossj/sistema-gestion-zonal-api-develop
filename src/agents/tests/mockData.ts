@@ -1,59 +1,5 @@
 import { Incident_Report } from '@/../../src/config/db/models/incident_report.models';
 import { IncidentReportData } from '@/../../src/interface';
-import { Consult_Report } from '@/../../src//config/db/models/consult_report.model';
-import { IConsultReportData } from '@/../../src/interface/consult_report.repositories.interface';
-
-export const mockConsultData: IConsultReportData = {
-  incidentType: 1,
-  incidentSubtype: 'Subtype A',
-  description: 'Description A',
-  nivelRiesgo: 'High',
-  status: 'Open',
-  localidad: 'Localidad A',
-  barrio: 'Barrio A',
-  numero_padron_municipal: '123',
-  zoneId: 1,
-};
-
-export const mockConsult: Partial<Consult_Report> = {
-  id: 1,
-  incidentType: 1,
-  incidentSubtype: 'Subtype A',
-  description: 'Description A',
-  nivelRiesgo: 'High',
-  status: 'Open',
-  localidad: 'Localidad A',
-  barrio: 'Barrio A',
-  numero_padron_municipal: '123',
-  zoneId: 1,
-};
-
-export const mockConsults: Partial<Consult_Report>[] = [
-  {
-    id: 1,
-    incidentType: 1,
-    incidentSubtype: 'Subtype A',
-    description: 'Description A',
-    nivelRiesgo: 'High',
-    status: 'Open',
-    localidad: 'Localidad A',
-    barrio: 'Barrio A',
-    numero_padron_municipal: '123',
-    zoneId: 1,
-  },
-  {
-    id: 2,
-    incidentType: 2,
-    incidentSubtype: 'Subtype B',
-    description: 'Description B',
-    nivelRiesgo: 'Low',
-    status: 'Closed',
-    localidad: 'Localidad B',
-    barrio: 'Barrio B',
-    numero_padron_municipal: '456',
-    zoneId: 2,
-  },
-];
 
 export const mockIncidentData: IncidentReportData = {
   incidentType: 1,
@@ -122,3 +68,14 @@ export const mockIncidents: Partial<Incident_Report>[] = [
     zoneId: 2,
   },
 ];
+
+
+export const mockConsultReports = [
+  {
+    id: 1,
+    incidentType: 2,
+    incidentSubtype: 'Theft',
+    status: 'Open',
+    createdAt: new Date(),
+    nivelRiesgo: 'High',
+  }]

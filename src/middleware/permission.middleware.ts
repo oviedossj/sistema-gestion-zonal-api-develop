@@ -9,10 +9,9 @@ export const verifyRole = (allowedRoles: string[]) => async (req: Request, res: 
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as any;
     const rolesEnum = getRolesEnum();
-
+    
     const userRole = Object.keys(rolesEnum).find((key) => rolesEnum[key] === decoded.role);
-    if (!userRole || !allowedRoles.includes(userRole))
-      return next(new Error('general.FORBIDDEN.function_access_restricted'));
+    if (!userRole || !allowedRoles.includes(userRole)) return next(new Error('general.FORBIDDEN.function_access_restricted'));
 
     next();
   } catch (error) {

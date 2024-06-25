@@ -1,5 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Table, Column, Model, DataType, PrimaryKey, AutoIncrement, CreatedAt, UpdatedAt } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, PrimaryKey, AutoIncrement, CreatedAt, UpdatedAt, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import { Incident_Report } from './incident_report.models';
 
 @Table({
   tableName: 'paperwork_item',
@@ -26,11 +26,15 @@ export class Paperwork_Item extends Model<Paperwork_Item> {
   })
   declare paperworkId: number;
 
+  @ForeignKey(() => Incident_Report)
   @Column({
-    type: DataType.STRING(255),
+    type: DataType.INTEGER.UNSIGNED,
     allowNull: false,
   })
-  declare itemId: string;
+  declare itemId: number;
+
+  @BelongsTo(() => Incident_Report)
+  declare incidentReport: Incident_Report;
 
   @Column({
     type: DataType.STRING(10),

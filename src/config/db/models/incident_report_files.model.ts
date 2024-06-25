@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Table, Column, Model, DataType, PrimaryKey, AutoIncrement, ForeignKey } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, PrimaryKey, AutoIncrement, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import { Incident_Report } from './incident_report.models';
 
 @Table({
@@ -33,4 +32,7 @@ export class Incident_Report_Files extends Model<Incident_Report_Files> {
     allowNull: false,
   })
   declare incidentReportId: number;
+
+  @BelongsTo(() => Incident_Report)
+  declare incidentReport: Incident_Report;
 }

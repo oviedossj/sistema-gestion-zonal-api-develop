@@ -3,11 +3,11 @@ export interface IPermission_Repositories<T> {
   getUserPermissions(userId: number): Promise<T[]>;
 }
 
-export enum Roles {
-  OPERADOR = 1,
-  CGM = 2,
-  AREA = 3,
-  SUPERVISOR = 4,
+export enum Roles_controllers {
+  OPERADOR = "OPERADOR",
+  CGM = "CGM",
+  AREA = "AREA",
+  SUPERVISOR = "SUPERVISOR",
 }
 
 export interface Permission_UserAttributes {

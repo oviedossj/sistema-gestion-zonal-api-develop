@@ -1,5 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Table, Column, Model, DataType, PrimaryKey, AutoIncrement, CreatedAt, UpdatedAt } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, PrimaryKey, AutoIncrement, CreatedAt, UpdatedAt, HasMany } from 'sequelize-typescript';
+import { Incident_Report } from './incident_report.models'; // Importa Incident_Report para definir la relación inversa
 
 @Table({
   tableName: 'incident_report_list',
@@ -26,6 +26,9 @@ export class Incident_Report_Types extends Model<Incident_Report_Types> {
     allowNull: false,
   })
   declare subtypes: string;
+
+  @HasMany(() => Incident_Report)
+  declare incidentReports: Incident_Report[]; // Define la relación inversa
 
   @CreatedAt
   @Column({

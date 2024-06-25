@@ -4,11 +4,11 @@ import config from '@src/config/env/env'; // Configuración del entorno
 import { Server } from '@src/server'; // Servidor
 import incident_reportRoutes from '@src/routers'; // Rutas principales
 // import { initRolesEnum } from '@src/config/auth/roles';
-import { Connection } from '@src/config/db';
+// import { Connection } from '@src/config/db';
 
 (async () => {
   try {
-    await Connection.authenticate();
+    // await Connection.authenticate();
     // await initRolesEnum();
 
     // Inicializar la conexión a la base de datos si es necesario

@@ -9,14 +9,14 @@ general:
       status: 401
     missing_access_key:
       key: 'general.UNAUTHORIZED.missing_access_key'
-      code: 'UNAUTHORIZED'
+      code: 'MISSING_ACCESS_KEY'
       message:
         es: 'No se proporcionó ninguna clave de acceso a la API.'
         en: 'No API access key was supplied.'
       status: 401
     inactive_user:
       key: 'general.UNAUTHORIZED.inactive_user'
-      code: 'UNAUTHORIZED'
+      code: 'INACTIVE_USER'
       message:
         es: 'La cuenta de usuario proporcionada está inactiva.'
         en: 'The given user account is inactive.'
@@ -36,6 +36,14 @@ general:
         es: 'El endpoint de la API dado no es compatible con el plan de suscripción actual.'
         en: 'The given API endpoint is not supported on the current subscription plan.'
       status: 403
+    agent_outside_allowed_zone:
+      key: 'general.FORBIDDEN.agent_outside_allowed_zone'
+      code: 'AGENT_OUTSIDE_ALLOWED_ZONE'
+      message:
+        es: 'El agente está intentando verificar una dirección fuera de su zona permitida.'
+        en: 'The agent is attempting to verify an address outside their allowed zone.'
+      status: 403
+
   NOT_FOUND:
     invalid_api_function:
       key: 'general.NOT_FOUND.invalid_api_function'

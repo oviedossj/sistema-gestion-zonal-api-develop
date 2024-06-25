@@ -14,3 +14,12 @@ export class ErrorHTTP extends Error {
     super(msg);
   }
 }
+
+export interface AddressData {
+  direccionOriginal: string;   
+  estandar: string;           
+  altura: string;            
+  x: string;                  
+  y: string;                  
+  cgm: string;                
+}

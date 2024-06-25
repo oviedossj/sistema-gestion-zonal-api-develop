@@ -37,8 +37,8 @@ COPY --chown=node:node --from=builder /build/dist dist
 COPY --chown=node:node --from=builder /build/package.json package.json
 COPY --chown=node:node --from=builder /build/node_modules node_modules
 COPY --chown=node:node --from=builder /build/tsconfig.json tsconfig.json
-COPY --chown=node:node --from=builder /build/src/shared/handler/error.yml dist/src/shared/handler/error.yml
-COPY --chown=node:node --from=builder /build/src/shared/docs dist/src/shared/docs
+COPY --chown=node:node --from=builder /build/src/config/handler/error.yml dist/src/shared/handler/error.yml
+COPY --chown=node:node --from=builder /build/src/config/docs dist/src/shared/docs
 
 # Ensure .env file exists
 RUN touch dist/.env
