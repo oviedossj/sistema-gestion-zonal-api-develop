@@ -1,6 +1,3 @@
-Claro, aquí tienes un archivo README para tu proyecto Node.js, incluyendo el uso opcional del Dockerfile:
-
-```markdown
 # wai-sistema-gestion-zonal-api-develop
 
 ## Descripción
