@@ -1,4 +1,4 @@
-# wai-sistema-gestion-zonal-api-develop
+#sistema-gestion-zonal-api-develop
 
 ## Descripción
 Este proyecto es una API para la gestión de incidentes en barrios. Está desarrollado con Node.js y TypeScript.
