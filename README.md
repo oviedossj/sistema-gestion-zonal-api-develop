@@ -11,8 +11,8 @@ Este proyecto es una API para la gestión de incidentes en barrios. Está desarr
 
 ### Clonar el Repositorio
 ```bash
-git clone https://github.com/tu_usuario/wai-sistema-gestion-zonal-api-develop.git
-cd wai-sistema-gestion-zonal-api-develop
+git clone https://github.com/tu_usuario/ -sistema-gestion-zonal-api-develop.git
+cd  -sistema-gestion-zonal-api-develop
 ```
 
 ### Instalar Dependencias
@@ -151,12 +151,12 @@ CMD ["npm", "run", "server:prod:docker"]
 
 ### Construir la Imagen de Docker
 ```bash
-docker build -t wai-sistema-gestion-zonal-api .
+docker build -t  -sistema-gestion-zonal-api .
 ```
 
 ### Ejecutar el Contenedor de Docker
 ```bash
-docker run -p 8080:8080 wai-sistema-gestion-zonal-api
+docker run -p 8080:8080  -sistema-gestion-zonal-api
 ```
 
 ## Autor
